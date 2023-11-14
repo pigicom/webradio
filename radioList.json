@@ -1,5 +1,4 @@
-[
-      {
+[{
         "name": "Virgin",
         "logo": "https://static.mytuner.mobi/media/radios-150px/tu4nvfesmjuf.png",
         "streamUrl": "http://icecast.unitedradio.it/Virgin.mp3"
@@ -53,7 +52,5 @@
         "name": "RADIO ITALIA",
         "logo": "https://static.mytuner.mobi/media/radios-150px/Srk6UGL3mQ.png",
         "streamUrl": "https://stream10.xdevel.com/audio1s977004-1749/stream/icecast.audio"
-      },
-      // Aggiungi altre stazioni radio secondo necessitàPigicom19753!
-      
-    ];
+      }
+];
