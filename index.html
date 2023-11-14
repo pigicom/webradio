@@ -56,16 +56,16 @@
 
 function createTable(radioStations){
     var row = $("<tr></tr>");
-    // Inserimento dei dati nella tabella
+	// Inserimento dei dati nella tabella
     $.each(radioStations, function(index, item) {
-     
-       // row.append("<tr><td>" + item.name + "</td></tr>");
-        row.append("<td><img src='" + item.logo + "' id='" + "img"+item.name + "' onclick=playMe('"+item.streamUrl+"');></td>");
-      if ((index+1) % 4 == ){
-       $("#data-table tbody").append(row);
-       row = $("<tr></tr>");
+      row.append("<td><img src='" + item.logo + "' id='" + "img"+item.name + "' onclick=playMe('"+item.streamUrl+"');></td>");
+      if ((index+1) % 4 == 0){
+		$("#data-table tbody").append(row);
+		row = $("<tr></tr>");
        }
-    });
+    }
+	//a fine ciclo
+    );
 }
  
 
