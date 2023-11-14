@@ -32,7 +32,7 @@
       {
         name: "RTL",
         logo: "https://static.mytuner.mobi/media/radios-150px/UWUuuy57sW.png",
-        streamUrl: "https://streamingv2.shoutcast.com/rtl-1025-best"
+        streamUrl: ""
       },
       {
         name: "RAI Deejay",
