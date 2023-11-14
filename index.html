@@ -43,13 +43,10 @@
 	dataType: 'text',
     success: function(res) {
       var headline = res;
-      alert("OK");
-	  radioStations=$.parseJSON(res);
-	  createTable(radioStations);
+       radioStations=$.parseJSON(res);
+       createTable(radioStations);
     },
     error: function(res) {
-    // alert(res.responseText)
-	alert("KO");
 	radioStations=res.responseText;
     }
   });
