@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Web Radio Player</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+<h2 id="onair">Array to Table with jQuery</h2>
+
+<div >
+  <audio controls style="display=none" id='player'>
+  </audio> 
+</div>
+
+
+  <table id="data-table" class="table">
+    <thead>
+      <tr id="header-row"></tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+  
+
+  <script>
+  var isPlaying=true;
+  
+    const radioStations = [
+      {
+        name: "Virgin",
+        logo: "https://static.mytuner.mobi/media/radios-150px/tu4nvfesmjuf.png",
+        streamUrl: "http://icecast.unitedradio.it/Virgin.mp3"
+      },
+      {
+        name: "RAI Radio 1",
+        logo: "https://static.mytuner.mobi/media/radios-150px/NQZv9rGMW8.jpg",
+        streamUrl: "http://icestreaming.rai.it/1.mp3"
+      },
+      {
+        name: "Radio 105",
+        logo: "https://static.mytuner.mobi/media/radios-150px/kDEyWkTtEE.png",
+        streamUrl: "mms://151.1.245.6/1"
+      },
+      {
+        name: "Radio Freccia",
+        logo: "https://static.mytuner.mobi/media/radios-150px/s2v6ucqjtdju.png",
+        streamUrl: "http://icecast.unitedradio.it/Virgin.mp3"
+      },
+      {
+        name: "RAI Radio 2",
+        logo: "https://static.mytuner.mobi/media/radios-150px/4MQy4EPAC9.png",
+        streamUrl: "http://icestreaming.rai.it/2.mp3"
+      },
+      {
+        name: "Radio Sportiva",
+        logo: "https://static.mytuner.mobi/media/radios-150px/FpJKGBypBB.png",
+        streamUrl: "https://sportiva.inmystream.it/stream/sportiva"
+      },
+      {
+        name: "RTL",
+        logo: "https://static.mytuner.mobi/media/radios-150px/UWUuuy57sW.png",
+        streamUrl: ""
+      },
+      {
+        name: "RAI Deejay",
+        logo: "https://static.mytuner.mobi/media/radios-150px/p6XeFjfDZh.jpg",
+        streamUrl: "http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8"
+      },
+      {
+        name: "Radio Montecarlo",
+        logo: "https://static.mytuner.mobi/media/radios-150px/p5ugpgUxGM.png",
+        streamUrl: "http://nr5.newradio.it:8545/stream.mp3"
+      },
+       {
+        name: "R101",
+        logo: "https://static.mytuner.mobi/media/radios-150px/r8MjNMsYjM.png",
+        streamUrl: "http://icecast.unitedradio.it/r101"
+      },
+       {
+        name: "RADIO ITALIA",
+        logo: "https://static.mytuner.mobi/media/radios-150px/Srk6UGL3mQ.png",
+        streamUrl: "https://stream10.xdevel.com/audio1s977004-1749/stream/icecast.audio"
+      },
+      // Aggiungi altre stazioni radio secondo necessitàPigicom19753!
+      
+    ];
+
+
+    // Popola il menu a discesa con le stazioni radio
+   console.log('caricamento...');
+ //  var myUrl="https://github.com/pigicom/webradio/blob/main/radioList.json";
+   var myUrl="https://www.google.com";
+    
+   console.log(myUrl);
+/*  
+   $.ajax({
+    type: "GET",
+    contentType : "text/html",
+    url:myUrl,
+    success: function (data) { 
+   alert("OK");
+   radioStations = data;
+    },
+     error: function (xhr, ajaxOptions, thrownError) {
+        alert(xhr.status);
+        alert(thrownError);
+        alert("KO");
+      }
+});
+      */
+      
+   $.ajax({
+    url: 'http://google.com', // Or your web page link
+    type: 'GET',
+    success: function(res) {
+      var headline = res.responseText;
+      alert(headline);
+    },
+    error: function(res) {
+     alert(res)
+    }
+  });
+ 
+
+    var row = $("<tr></tr>");
+    // Inserimento dei dati nella tabella
+    $.each(radioStations, function(index, item) {
+     
+       // row.append("<tr><td>" + item.name + "</td></tr>");
+        row.append("<td><img src='" + item.logo + "' id='" + "img"+item.name + "' onclick=playMe('"+item.streamUrl+"');></td>");
+      if (index % 2 == 0 && index !=0){
+       $("#data-table tbody").append(row);
+       row = $("<tr></tr>");
+       }
+    });
+
+ 
+
+    function playMe(item){
+     console.log(isPlaying);
+     isPlaying=!isPlaying;
+
+
+    $('#player').attr('src',item);
+   
+    if  (isPlaying==true)
+    {
+    $("#player").trigger("pause");}
+    else
+    {
+    $("#player").trigger("play");
+    $("#onair").text(item);
+    }
+    console.log($('#player').attr('src'));
+    }
+  
+  
+
+  </script>
+  
+  
+
+</body>
+</html>
