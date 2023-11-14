@@ -1,4 +1,4 @@
- const radioStations = [
+[
       {
         name: "Virgin",
         logo: "https://static.mytuner.mobi/media/radios-150px/tu4nvfesmjuf.png",
