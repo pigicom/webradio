@@ -35,7 +35,7 @@
 
   <script>
   var isPlaying=true;
-  
+  /*
     const radioStations = [
       {
         name: "Virgin",
@@ -95,19 +95,16 @@
       // Aggiungi altre stazioni radio secondo necessitàPigicom19753!
       
     ];
+*/
 
-
-    // Popola il menu a discesa con le stazioni radio
-   console.log('caricamento...');
- //  var myUrl="https://github.com/pigicom/webradio/blob/main/radioList.json";
-   var myUrl="https://www.google.com";
+/*
     
-   console.log(myUrl);
-/*  
+   //console.log(myUrl);
+  
    $.ajax({
     type: "GET",
-    contentType : "text/html",
-    url:myUrl,
+    contentType : "application/json",
+    url:'https://pigicom.github.io/webradio/radioList.json',
     success: function (data) { 
    alert("OK");
    radioStations = data;
@@ -118,21 +115,28 @@
         alert("KO");
       }
 });
-      */
-      
+     */ 
+  var radioStations;
    $.ajax({
-    url: 'http://google.com', // Or your web page link
+    url: 'https://pigicom.github.io/webradio/radioList.json', // Or your web page link
     type: 'GET',
+	cache: false,
+	dataType: 'text',
     success: function(res) {
-      var headline = res.responseText;
-      alert(headline);
+      var headline = res;
+      alert("OK");
+	  radioStations=$.parseJSON(res);
+	  createTable(radioStations);
     },
     error: function(res) {
-     alert(res)
+    // alert(res.responseText)
+	alert("KO");
+	radioStations=res.responseText;
     }
   });
  
 
+function createTable(radioStations){
     var row = $("<tr></tr>");
     // Inserimento dei dati nella tabella
     $.each(radioStations, function(index, item) {
@@ -144,7 +148,7 @@
        row = $("<tr></tr>");
        }
     });
-
+}
  
 
     function playMe(item){
@@ -165,11 +169,30 @@
     console.log($('#player').attr('src'));
     }
   
-  
+  function fetchImageAndDownload (e) {
+    e.preventDefault(); // Prevent browser's default download stuff...
+
+    const url = this.getAttribute("href");       // Anchor href 
+    const downloadName = this.download;          // Anchor download name
+
+    const img = document.createElement("img");   // Create in-memory image
+    img.addEventListener("load", () => {
+        const a = document.createElement("a");   // Create in-memory anchor
+        a.href = img.src;                        // href toward your server-image
+        a.download = downloadName;               // :)
+        a.click();                               // Trigger click (download)
+    });
+    img.src = 'fetchImage?url='+ url;       // Request image from your server
+
+}
 
   </script>
   
   
 
+
+<a href="https://pigicom.github.io/webradio/radioList.json" download="radioList.json">Download link</a>
 </body>
 </html>
+
+
