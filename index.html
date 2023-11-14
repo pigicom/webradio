@@ -35,87 +35,6 @@
 
   <script>
   var isPlaying=true;
-  /*
-    const radioStations = [
-      {
-        name: "Virgin",
-        logo: "https://static.mytuner.mobi/media/radios-150px/tu4nvfesmjuf.png",
-        streamUrl: "http://icecast.unitedradio.it/Virgin.mp3"
-      },
-      {
-        name: "RAI Radio 1",
-        logo: "https://static.mytuner.mobi/media/radios-150px/NQZv9rGMW8.jpg",
-        streamUrl: "http://icestreaming.rai.it/1.mp3"
-      },
-      {
-        name: "Radio 105",
-        logo: "https://static.mytuner.mobi/media/radios-150px/kDEyWkTtEE.png",
-        streamUrl: "mms://151.1.245.6/1"
-      },
-      {
-        name: "Radio Freccia",
-        logo: "https://static.mytuner.mobi/media/radios-150px/s2v6ucqjtdju.png",
-        streamUrl: "http://icecast.unitedradio.it/Virgin.mp3"
-      },
-      {
-        name: "RAI Radio 2",
-        logo: "https://static.mytuner.mobi/media/radios-150px/4MQy4EPAC9.png",
-        streamUrl: "http://icestreaming.rai.it/2.mp3"
-      },
-      {
-        name: "Radio Sportiva",
-        logo: "https://static.mytuner.mobi/media/radios-150px/FpJKGBypBB.png",
-        streamUrl: "https://sportiva.inmystream.it/stream/sportiva"
-      },
-      {
-        name: "RTL",
-        logo: "https://static.mytuner.mobi/media/radios-150px/UWUuuy57sW.png",
-        streamUrl: ""
-      },
-      {
-        name: "RAI Deejay",
-        logo: "https://static.mytuner.mobi/media/radios-150px/p6XeFjfDZh.jpg",
-        streamUrl: "http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8"
-      },
-      {
-        name: "Radio Montecarlo",
-        logo: "https://static.mytuner.mobi/media/radios-150px/p5ugpgUxGM.png",
-        streamUrl: "http://nr5.newradio.it:8545/stream.mp3"
-      },
-       {
-        name: "R101",
-        logo: "https://static.mytuner.mobi/media/radios-150px/r8MjNMsYjM.png",
-        streamUrl: "http://icecast.unitedradio.it/r101"
-      },
-       {
-        name: "RADIO ITALIA",
-        logo: "https://static.mytuner.mobi/media/radios-150px/Srk6UGL3mQ.png",
-        streamUrl: "https://stream10.xdevel.com/audio1s977004-1749/stream/icecast.audio"
-      },
-      // Aggiungi altre stazioni radio secondo necessitàPigicom19753!
-      
-    ];
-*/
-
-/*
-    
-   //console.log(myUrl);
-  
-   $.ajax({
-    type: "GET",
-    contentType : "application/json",
-    url:'https://pigicom.github.io/webradio/radioList.json',
-    success: function (data) { 
-   alert("OK");
-   radioStations = data;
-    },
-     error: function (xhr, ajaxOptions, thrownError) {
-        alert(xhr.status);
-        alert(thrownError);
-        alert("KO");
-      }
-});
-     */ 
   var radioStations;
    $.ajax({
     url: 'https://pigicom.github.io/webradio/radioList.json', // Or your web page link
@@ -169,29 +88,8 @@ function createTable(radioStations){
     console.log($('#player').attr('src'));
     }
   
-  function fetchImageAndDownload (e) {
-    e.preventDefault(); // Prevent browser's default download stuff...
-
-    const url = this.getAttribute("href");       // Anchor href 
-    const downloadName = this.download;          // Anchor download name
-
-    const img = document.createElement("img");   // Create in-memory image
-    img.addEventListener("load", () => {
-        const a = document.createElement("a");   // Create in-memory anchor
-        a.href = img.src;                        // href toward your server-image
-        a.download = downloadName;               // :)
-        a.click();                               // Trigger click (download)
-    });
-    img.src = 'fetchImage?url='+ url;       // Request image from your server
-
-}
-
-  </script>
+    </script>
   
-  
-
-
-<a href="https://pigicom.github.io/webradio/radioList.json" download="radioList.json">Download link</a>
 </body>
 </html>
 
