@@ -103,12 +103,42 @@ body {
 }
 
 .flickity-slider {
-  display: table;
+  display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   width: 100%;
-  height: 250%;
+  height: 100%;
+}
+
+
+
+
+.static-banner {
+  position: absolute;
+ // background: hsla(0, 0%, 0%, 0.3);
+  z-index: 1;
+  padding: 2px 20px;
+  font-size: 26px;
+  color: white;
+  pointer-events: none;
+  font-family:Arial, Helvetica, sans-serif;
+  top:100px;
+  width:30%;
+  text-align:center;
+ padding-right:90px;
+}
+
+.static-banner1 {
+  left: 10px;
+  top: 50px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.static-banner2 {
+  right: 10px;
+  bottom: 50px;
+   font-family:Arial, Helvetica, sans-serif;
 }
 
   </style>
@@ -129,8 +159,10 @@ function initialize (){
       groupCells: 1,
       selectedAttraction: 0.2,
       friction: 0.8,
-      draggable: true //false = disable dragging
-    });
+	  wrapAround: false,
+      draggable: true, //false = disable dragging
+	  contain:true,
+   });
 
     //this enables clicking on cards
     slider.on(
@@ -204,19 +236,18 @@ function initialize (){
 
 
 
-<div class="carousel">
- <div>
+<div class="carousel"  data-flickity='{ "initialIndex": 4, "wrapAround": true,"cellSelector": ".carousel-cell" }'>
+   <div class="static-banner" id="onair"></div>
+  
+   <div class="slider" id="slider">
+   </div>
+</div>
+-<div>
    <div>
-   <h2 id="onair"></h2>
-  <audio controls id='player' style="position: relative;padding-bottom: 400px;"> </audio> 
+   <div class="static-banner" id="onair"><audio controls id='player' style="display:none"> </audio> </div> 
   </div>
 </div>
-  <div class="slider" id="slider">
-
-   </div>
-  
-</div>
-
+ 
 <script>
   
   var isPlaying=true;
@@ -239,7 +270,7 @@ function initialize (){
 
 function createTable(radioStations){
      $.each(radioStations, function(index, item) {
-      var block='<div class="card"><div class="card-bg"  onclick="playMe('+"'"+ item.streamUrl+ "'"+')"       style="background-image: url('+ item.logo + ');"></div></div>'
+      var block='<div class="card"><div class="card-bg"  onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"       style="background-image: url('+ item.logo + ');"></div></div>'
 	  $("#slider").append(block);
 	 }
 	);
@@ -247,10 +278,10 @@ function createTable(radioStations){
 }
  
 
-    function playMe(item){
+    function playMe(item,name){
     $('#player').attr('src',item);
     $("#player").trigger("play");
-    $("#onair").text(item);
+    $("#onair").text(name);
     
     }
   
