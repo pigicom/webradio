@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/foundation.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="../jquery.circular-carousel.css">
+<title></title>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+</head>
+<body>
+
+
+<div class="static-banner" id="onair"><audio controls id='player'> </audio> </div> 
+<h1 align="center" style="margin-top:150px;">jQuery Circular Carousel Plugin Demo</h1>
+<div class="row" id="swipe">
+  <ul class="carousel" id="slider">
+    <!--<li class="item active"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>
+    <li class="item"></li>-->
+  </ul>
+</div>
+<script>
+
+var isPlaying=true;
+  var radioStations;
+   $.ajax({
+    url: 'https://pigicom.github.io/webradio/radioList.json', // Or your web page link
+    type: 'GET',
+	cache: false,
+	async: false,
+	dataType: 'text',
+    success: function(res) {
+      var headline = res;
+       radioStations=$.parseJSON(res);
+       createTable(radioStations);
+    },
+    error: function(res) {
+	radioStations=res.responseText;
+    }
+  });
+  
+function createTable(radioStations){
+     $.each(radioStations, function(index, item) {
+      //var block='<div class="card"><div class="card-bg"  onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"       style="background-image: url('+ item.logo + ');"></div></div>'
+	  
+	  if (index==0)
+	  var block='<li class="item active"><img onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"  alt="Girl in a jacket" width="400" height="400"     src="'+ item.logo + '"/></li>'
+	  else
+	  var block='<li class="item"><img onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"  alt="Girl in a jacket" width="400" height="400"     src="'+ item.logo + '"/></li>'
+	  	  
+	  $("#slider").append(block);
+	  	 }
+	);
+	//initialize();
+}
+	 function playMe(item,name){
+    $('#player').attr('src',item);
+    $("#player").trigger("play");
+    //$("#onair").text(name);
+    
+    }
+</script>
+<div class="controls">
+ <a href="#" class="previous">Previous</a> 
+ <a href="#" class="next">Next</a>
+</div>
+
+
+<script src="../jquery.circular-carousel.js"></script> 
+<script src="js/script.js"></script>
+<script type="text/javascript" src="js\jquery_touch\jquery.touch.js"></script>
+<script type="text/javascript" src="js\jquery_touch\jquery.swipe.js"></script>
+<script>
+
+$("#swipe").touchInit();
+var handler = function (event) {
+    // your handler logic goes here
+};
+$("#swipe").on("touch_start", handler);
+$("#swipe").on("touch_move", handler);
+$("#swipe").on("touch_end", handler);
+var start_handler = function (event) {
+    // your handler logic goes here
+};
+var move_handler = function (event) {
+    // your handler logic goes here
+};
+var end_handler = function (event) {
+    // your handler logic goes here
+};
+$("#swipe").on("touch_start", start_handler);
+$("#swipe").on("touch_move", move_handler);
+$("#swipe").on("touch_end", end_handler);
+$("#swipe").swipe(function(direction) {
+   if (direction=="left")
+   {
+     $('a').get(1).click();
+	 }
+   else
+   {
+     $('a').get(0).click();
+   }
+});
+</script>
+</body>
+</html>
