@@ -40,8 +40,7 @@ var isPlaying=true;
 	radioStations=res.responseText;
     }
   });
-</script>
-<script>
+
 function createTable(radioStations){
      $.each(radioStations, function(index, item) {
       //var block='<div class="card"><div class="card-bg"  onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"       style="background-image: url('+ item.logo + ');"></div></div>'
