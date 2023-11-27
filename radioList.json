@@ -12,4 +12,4 @@
   {"name":"RADIOITALIA","logo":"LogoRadio/RadioItalia.png","streamUrl":"https://stream10.xdevel.com/audio1s977004-1749/stream/icecast.audio"},
   {"name":"RADIO KISSKISS","logo":"LogoRadio/KissKiss.jpg","streamUrl":"https://ice07.fluidstream.net:8080/KissKiss.mp3"},
   {"name":"R101","logo":"LogoRadio/Radio101.png","streamUrl":"https://icecast.unitedradio.it/r101_mp3"},
-  {"name":"RADIO NUMBER ONE","logo":LogoRadio/RadioNumberOne.png","streamUrl":"https://str04.fluidstream.net/rn1.mp3"}]
+  {"name":"RADIO NUMBER ONE","logo":"LogoRadio/RadioNumberOne.png","streamUrl":"https://str04.fluidstream.net/rn1.mp3"}]
