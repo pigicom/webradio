@@ -1,5 +1,5 @@
 [{"name":"Virgin","logo":"LogoRadio/VirginRadio.png","streamUrl":"http://icecast.unitedradio.it/Virgin.mp3"},
-  {"name":"RAIRadio1","logo":"LogoRadio/Radio1.png","streamUrl":"http://icestreaming.rai.it/1.mp3"},
+  {"name":"RAIRadio1","logo":"LogoRadio/Radio1.jpg","streamUrl":"http://icestreaming.rai.it/1.mp3"},
   {"name":"Radio105","logo":"LogoRadio/Raio105.png","streamUrl":"https://icecast.unitedradio.it/Radio105.mp3"},
   {"name":"RadioFreccia","logo":"LogoRadio/RadioFreccia.png","streamUrl":"http://icecast.unitedradio.it/Virgin.mp3"},
   {"name":"RAIRadio2","logo":"LogoRadio/Radio2.jpg","streamUrl":"http://icestreaming.rai.it/2.mp3"},
