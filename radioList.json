@@ -5,7 +5,7 @@
   {"name":"RAIRadio2","logo":"LogoRadio/Radio2.png","streamUrl":"http://icestreaming.rai.it/2.mp3"},
   {"name":"RadioSportiva","logo":"LogoRadio/RadioSportiva.png","streamUrl":"https://sportiva.inmystream.it/stream/sportiva"},
   {"name":"RTL","logo":"LogoRadio/RTL102e5.png","streamUrl":""},
-  {"name":"RAIDeejay","logo":"LogoRadio/RadioDeejay.jpg","streamUrl":"http://radiodeejay-lh.akamaihd.net/i/RadioDeejay_Live_1@189857/master.m3u8"},
+  {"name":"RAIDeejay","logo":"LogoRadio/RadioDeejay.jpg","streamUrl":"https://4c4b867c89244861ac216426883d1ad0.msvdn.net/radiodeejay/radiodeejay/master_ma.m3u8"},
   {"name":"RadioMontecarlo","logo":"LogoRadio/RadioMontecarlo.png","streamUrl":"http://nr5.newradio.it:8545/stream.mp3"},
   {"name":"R101","logo":"LogoRadio/Radio101.png","streamUrl":"http://icecast.unitedradio.it/r101"},
   {"name":"RADIO BRUNO","logo":"LogoRadio/RadioBruno.png","streamUrl":"https://stream6.xdevel.com/audio4s975355-395/stream/icecast.audio"},
