@@ -9,20 +9,141 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="../jquery.circular-carousel.css">
 <title></title>
-<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 </head>
 <body>
 
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <div class="app-container">
+    <div id="app">
+      <header>
+      </header>
+      <!--
+      <section>
+        <button @click="add">Add</button>
+        <button @click="rewind">Rewind</button>
+        <button @click="up">Up</button>
+        <button @click="down">Down</button>
+        <button @click="mute">Mute</button>
+        <button @click="pause">Pause</button>
+        <button @click="play">Play</button>
+        <button @click="stop">Stop</button>
+        <button @click="hls">HLS</button>
+        <button @click="mp3">MP3</button>
+      </section>
+    -->
+    </div>
+  </div>
+  <div class="info-container">
+    <div id="info">
+  <!--
+      <div>Playing: {{ playing }}</div>
+        <div>Paused: {{ paused }}</div>
+        <div>Muted: {{ muted }}</div>
+        <div>Volume: {{ volume }}%</div>
+        <div>Source: {{ src }}</div>
+        <div>HLS: {{ isHls }}</div>
+        <div>Time: {{ time }}</div>
+      </div>
+    -->
+  </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js" integrity="sha512-8GokEWxcB/NrPU4O8BHTgd9dkLouAsvqCnk6BSa2CZw7QXh0QM8GHfS53xYW1QJJVyJWctlcdRQwu5UxeLVsNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@davland7/rplayer/dist/rplayer.min.js"></script>
+  <script type="text/javascript">
+    const info = Vue.createApp({
+      data: () => ({
+        playing: false,
+        volume: null,
+        paused: false,
+        muted: false,
+        isHls: false,
+        src: null,
+        time: 0
+      })
+    }).mount('#info');
+
+    const app = Vue.createApp({
+      data: () => ({
+        audio: null,
+        url: null,
+        urls: {
+          mp3: 'https://playerservices.streamtheworld.com/api/livestream-redirect/CKBEFMAAC.aac',
+          hls: 'https://playerservices.streamtheworld.com/api/livestream-redirect/CKBEFMAAC.m3u8'
+        }
+      }),
+      created: function () {
+        this.init();
+      },
+      methods: {
+        init: function () {
+          this.audio = new rPlayer();
+          this.url = this.urls.hls;
+          const self = this;
+          this.audio.ontimeupdate = function() {
+          };
+        },
+        add: function () {
+          let url;
+          url = prompt('Add your url');
+
+          if (Boolean(url)) {
+            this.url = url;
+            this.play();
+
+          } else {
+            alert('Your url is not valid!');
+          }
+        },
+        rewind: function () {
+          this.audio.rewind(10);
+        },
+        up: function () {
+          this.audio.upVolume();
+        },
+        down: function () {
+          this.audio.downVolume();
+        },
+        mute: function () {
+          this.audio.mute();
+        },
+        pause: function () {
+          this.audio.pause();
+        },
+        play: function () {
+          this.audio.playSrc(this.url);
+        },
+        stop: function () {
+          this.audio.stop();
+        },
+        hls: function () {
+          this.url = this.urls.hls;
+          this.play();
+        },
+        mp3: function () {
+          this.url = this.urls.mp3;
+          this.play();
+
+         // this.trackEvent('button', 'Mp3');
+        },
+      }
+    }).mount('#app');
+
+
+  </script>
+<!------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+<!--
 <div class="static-banner" id="onair"  style="display: flex;justify-content: center;align-items: center;">
   <audio controls id='player'> </audio> 
 </div> 
-<!--<h1 align="center" style="margin-top:150px;">jQuery Circular Carousel Plugin Demo</h1>-->
+--> 
 <div class="row" id="swipe">
   <ul class="carousel" id="slider">
   </ul>
 </div>
+
+
 <script>
 
 var isPlaying=true;
@@ -48,9 +169,9 @@ function createTable(radioStations){
       //var block='<div class="card"><div class="card-bg"  onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"       style="background-image: url('+ item.logo + ');"></div></div>'
 	  
 	  if (index==0)
-	  var block='<li class="item active"><img onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"  alt="Girl in a jacket" width="400" height="400"     src="'+ item.logo + '"/></li>'
+	  var block='<li class="item active"><img onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"  alt="Logo" width="350" height="250"     src="'+ item.logo + '"/></li>'
 	  else
-	  var block='<li class="item"><img onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"  alt="Girl in a jacket" width="400" height="400"     src="'+ item.logo + '"/></li>'
+	  var block='<li class="item"><img onclick="playMe('+"'"+ item.streamUrl+ "','"+ item.name + "'"+')"  alt="Logo" width="350" height="250"     src="'+ item.logo + '"/></li>'
 	  	  
 	  $("#slider").append(block);
 	  	 }
@@ -58,10 +179,11 @@ function createTable(radioStations){
 	//initialize();
 }
 	 function playMe(item,name){
-    $('#player').attr('src',item);
-    $("#player").trigger("play");
-    //$("#onair").text(name);
-    
+   // $('#player').attr('src',item)
+   // $("#player").trigger("play");
+   app.stop();
+   app.url=item;
+   app.play();
     }
 </script>
 <div class="controls">
