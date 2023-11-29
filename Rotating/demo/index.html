@@ -181,9 +181,11 @@ function createTable(radioStations){
 	 function playMe(item,name){
    // $('#player').attr('src',item)
    // $("#player").trigger("play");
-   app.stop();
-   app.url=item;
-   app.play();
+   //app.stop();
+   //app.url=item;
+   //app.play();
+   var track = {"url": item}
+   median.backgroundMedia.playTrack(track);
     }
 </script>
 <div class="controls">
