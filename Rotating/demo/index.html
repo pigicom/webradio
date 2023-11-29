@@ -133,11 +133,11 @@
   </script>
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------->
 
-<!--
+
 <div class="static-banner" id="onair"  style="display: flex;justify-content: center;align-items: center;">
   <audio controls id='player'> </audio> 
 </div> 
---> 
+ 
 <div class="row" id="swipe">
   <ul class="carousel" id="slider">
   </ul>
@@ -179,14 +179,12 @@ function createTable(radioStations){
 	//initialize();
 }
 	 function playMe(item,name){
-   // $('#player').attr('src',item)
-   // $("#player").trigger("play");
+    $('#player').attr('src',item)
+    $("#player").trigger("play");
    //app.stop();
    //app.url=item;
    //app.play();
-   var track = {"url": item}
-   median.backgroundMedia.playTrack(track);
-    }
+  }
 </script>
 <div class="controls">
  <a href="#" class="previous">Previous</a> 
