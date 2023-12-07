@@ -4,7 +4,7 @@
   {"name":"Radio Freccia","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RadioFreccia.png","streamUrl":"http://icecast.unitedradio.it/Virgin.mp3"},
   {"name":"RAI Radio2","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/Radio2.png","streamUrl":"http://icestreaming.rai.it/2.mp3"},
   {"name":"RadioSportiva","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RadioSportiva.png","streamUrl":"https://sportiva.inmystream.it/stream/sportiva"},
-  {"name":"RTL","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RTL102e5.png","streamUrl":""},
+  {"name":"RTL","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RTL102e5.png","streamUrl":"https://streamingv2.shoutcast.com/rtl-1025-best_48.aac"},
   {"name":"Radio Deejay","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RadioDeejay.jpg","streamUrl":"https://4c4b867c89244861ac216426883d1ad0.msvdn.net/radiodeejay/radiodeejay/master_ma.m3u8"},
   {"name":"Radio Montecarlo","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RadioMontecarlo.png","streamUrl":"http://nr5.newradio.it:8545/stream.mp3"},
   {"name":"R101","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/Radio101.png","streamUrl":"http://icecast.unitedradio.it/r101"},
