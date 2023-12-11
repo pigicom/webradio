@@ -12,4 +12,5 @@
   {"name":"Radio Italia","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RadioItalia.png","streamUrl":"https://stream10.xdevel.com/audio1s977004-1749/stream/icecast.audio"},
   {"name":"Radio KissKiss","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/KissKiss.jpg","streamUrl":"https://ice07.fluidstream.net:8080/KissKiss.mp3"},
   {"name":"Radio Zeta","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/redio_zeta.jpg","streamUrl":"https://streamcdnb2-dd782ed59e2a4e86aabf6fc508674b59.msvdn.net/live/S9346184/XEx1LqlYbNic/chunklist_b128000.m3u8"},
-  {"name":"Radio NumberOne","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RadioNumberOne.png","streamUrl":"https://str04.fluidstream.net/rn1.mp3"}]
+  {"name":"Radio NumberOne","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/RadioNumberOne.png","streamUrl":"https://str04.fluidstream.net/rn1.mp3"},
+  {"name":"quit","logo":"https://pigicom.github.io/webradio/Rotating/demo/LogoRadio/quit.png","streamUrl":""}]
